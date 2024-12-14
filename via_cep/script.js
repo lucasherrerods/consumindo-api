@@ -23,9 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let neighbor = document.querySelector('#neighbor')
         let city = document.querySelector('#city')
 
-        address.value = data.logradouro
-        neighbor.value = data.bairro
-        city.value = data.estado
+        address.value = data.logradouro || 'Não encontrado'
+        neighbor.value = data.bairro || 'Não encontrado'
+        city.value = data.estado || 'Não encontrado'
+
+        if (address.value == 'Não encontrado') {
+            alert('CEP inválido. Verifique e tente novamente.')
+        }
     }
 
     button.addEventListener('click', searchCep)
