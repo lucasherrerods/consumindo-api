@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API | OpenWeather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+
+<body>
+    <div class="container">
+        <form id="search">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="search" name="city-name" id="city-name" placeholder="Buscar cidade">
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <div id="weather">
+            <h1 id="title">Pirituba, BR</h1>
+            <div id="infos">
+                <div id="temp">
+                    <img id="temp-img" src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
+                    <div>
+                        <p id="temp-value">32 <sup>ºC</sup></p>
+                        <p id="temp-description">Ensolarado</p>
+                    </div>
+                </div>
+                <div id="other-infos">
+                    <div class="info">
+                        <i id="temp-max-icon" class="fa-solid fa-temperature-high"></i>
+                        <div>
+                            <h2>Temp. max</h2>
+                            <p id="temp-max">32 <sup>ºC</sup></p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <i id="temp-min-icon" class="fa-solid fa-temperature-low"></i>
+                        <div>
+                            <h2>Temp. min</h2>
+                            <p id="temp-min">12 <sup>ºC</sup></p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <i id="humidity-icon" class="fa-solid fa-droplet"></i>
+                        <div>
+                            <h2>Umidade</h2>
+                            <p id="humidity">50%</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <i id="wind-icon" class="fa-solid fa-wind"></i>
+                        <div>
+                            <h2>Vento</h2>
+                            <p id="wind">50 km</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="alert"></div>
+    </div>
+</body>
+
+</html>
