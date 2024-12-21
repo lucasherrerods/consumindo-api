@@ -1,4 +1,5 @@
 const form = document.querySelector('#form')
+const weather = document.querySelector('#weather')
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -6,8 +7,11 @@ form.addEventListener('submit', async (event) => {
     const cityName = document.querySelector('#city-name').value
 
     if (!cityName) {
-        document.querySelector('#weather').classList.remove('show')
-        return showAlert('Você precisa digitar uma cidade!')
+        weather.classList.remove('show')
+        return showAlert(`
+            Você precisa digitar uma cidade!
+            <img src="assets/img/typeicon.svg"></img>
+        `)
     }
 
     const token = '3d181d14570e4c10f8a6d3c74d8ac3f4'
@@ -29,7 +33,7 @@ form.addEventListener('submit', async (event) => {
             humidity: json.main.humidity
         })
     } else {
-        document.querySelector('#weather').classList.remove('show')
+        weather.classList.remove('show')
         showAlert(`
             Não foi possível localizar essa cidade!
             <img src="assets/img/searchicon.svg"></img>
@@ -40,7 +44,7 @@ form.addEventListener('submit', async (event) => {
 const showInfo = (json) => {
     showAlert('')
 
-    document.querySelector('#weather').classList.add('show')
+    weather.classList.add('show')
 
     document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`
     document.querySelector('#temp-value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
