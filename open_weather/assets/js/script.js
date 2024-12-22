@@ -49,7 +49,7 @@ const showInfo = (json) => {
     //mostrando na tela cada item do meu objeto
     document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`
     document.querySelector('#temp-value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
-    document.querySelector('#temp-img').setAttribute('src', `https://openweathermap.org/img/wn/${json.icon}@2x.png`)
+    document.querySelector('#temp-img').setAttribute('src', `https://openweathermap.org/img/wn/${json.icon}.png`)
     document.querySelector('#flag').setAttribute('src', `https://flagcdn.com/w320/${json.country.toLowerCase()}.png`) //api de bandeiras de cada país
     document.querySelector('#temp-description').innerHTML = json.description
     document.querySelector('#temp-min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`

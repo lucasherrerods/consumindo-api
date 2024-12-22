@@ -103,6 +103,7 @@ body {
 
 #temp-img {
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1));
+    width: 100px;
 }
 
 #temp-value {
@@ -172,4 +173,35 @@ body {
 #alert img {
     width: 200px;
     max-height: 200px;
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        width: 80%;
+        height: auto;
+    }
+
+    #weather #title {
+        font-size: 26px;
+    }
+
+    #temp-img {
+        width: 75px;
+    }
+
+    #temp-value {
+        font-size: 35px;
+    }
+
+    .info h2 {
+        font-size: 10px;
+    }
+
+    .info i {
+        font-size: 15px;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
 }
