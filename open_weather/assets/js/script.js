@@ -49,11 +49,12 @@ const showInfo = (json) => {
     document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`
     document.querySelector('#temp-value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
     document.querySelector('#temp-img').setAttribute('src', `https://openweathermap.org/img/wn/${json.icon}@2x.png`)
+    document.querySelector('#flag').setAttribute('src', `https://flagcdn.com/w320/${json.country.toLowerCase()}.png`)
     document.querySelector('#temp-description').innerHTML = json.description
     document.querySelector('#temp-min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
     document.querySelector('#temp-max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
     document.querySelector('#humidity').innerHTML = `${json.humidity}%`
-    document.querySelector('#wind').innerHTML = `${json.windSpeed.toFixed(1).toString().replace('.', ',')} km`
+    document.querySelector('#wind').innerHTML = `${json.windSpeed.toFixed(1).toString().replace('.', ',')} km/h`
 }
 
 const showAlert = (msg) => {
