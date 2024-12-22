@@ -1,8 +1,8 @@
-const form = document.querySelector('#form')
+const form = document.querySelector('#form')    
 const weather = document.querySelector('#weather')
 
 form.addEventListener('submit', async (event) => {
-    event.preventDefault()
+    event.preventDefault() //tirando o padrão do navegador
 
     const cityName = document.querySelector('#city-name').value
 
@@ -14,14 +14,14 @@ form.addEventListener('submit', async (event) => {
         `)
     }
 
-    const token = '3d181d14570e4c10f8a6d3c74d8ac3f4'
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${token}&units=metric&lang=pt_br`
+    const token = '3d181d14570e4c10f8a6d3c74d8ac3f4' //meu token da api
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${token}&units=metric&lang=pt_br`//endcode deixa caracteres especias compativeis
 
     const results = await fetch(url)
-    const json = await results.json()
+    const json = await results.json() //pegando os dados da api e transformando em objeto
 
     if (json.cod === 200) {
-        showInfo({
+        showInfo({ //objeto para todos os dados que pretendo capturar
             city: json.name,
             country: json.sys.country,
             temp: json.main.temp,
@@ -42,14 +42,15 @@ form.addEventListener('submit', async (event) => {
 })
 
 const showInfo = (json) => {
-    showAlert('')
+    showAlert('') //limpando caso tiver alerta
 
     weather.classList.add('show')
 
+    //mostrando na tela cada item do meu objeto
     document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`
     document.querySelector('#temp-value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
     document.querySelector('#temp-img').setAttribute('src', `https://openweathermap.org/img/wn/${json.icon}@2x.png`)
-    document.querySelector('#flag').setAttribute('src', `https://flagcdn.com/w320/${json.country.toLowerCase()}.png`)
+    document.querySelector('#flag').setAttribute('src', `https://flagcdn.com/w320/${json.country.toLowerCase()}.png`) //api de bandeiras de cada país
     document.querySelector('#temp-description').innerHTML = json.description
     document.querySelector('#temp-min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
     document.querySelector('#temp-max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.', ',')}<sup>ºC</sup>`
